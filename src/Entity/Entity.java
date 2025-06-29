@@ -1,27 +1,17 @@
 package Entity;
 
-public abstract class Entity {
-    private int x;
-    private int y;
+public abstract class Entity{
+    private String sprite;
 
-    public Entity(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Entity(String sprite) {
+        this.sprite = sprite;
     }
 
-    public int getX() {
-        return x;
+    public String getSprite() {
+        return sprite;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+    public void setSprite(String sprite) {
+        this.sprite = sprite;
     }
 }
