@@ -2,9 +2,13 @@ package Creature;
 
 import Entity.EntityType;
 import WorldMap.Coordinate;
+import WorldMap.WorldMap;
 
-public class Herbivore extends Creature{
-    public Herbivore(EntityType type, Coordinate coordinate, int hp, int speed) {
-        super(type, coordinate, hp, speed);
+public class Herbivore extends Creature {
+    public Herbivore(int hp, int speed) {
+        super(hp, speed);
+    }
+    public void makeMove(WorldMap map){
+
     }
 }

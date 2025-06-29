@@ -2,12 +2,25 @@ package Creature;
 
 import Entity.EntityType;
 import WorldMap.Coordinate;
+import WorldMap.WorldMap;
 
 public class Predator extends Creature{
-    public int attackPower;
+    private int attackPower;
 
-    public Predator(EntityType type, Coordinate coordinate, int hp, int speed, int attackPower) {
-        super(type, coordinate, hp, speed);
+    public Predator(int hp, int speed, int attackPower) {
+        super(hp, speed);
         this.attackPower = attackPower;
+    }
+
+    public int getAttackPower() {
+        return attackPower;
+    }
+
+    public void setAttackPower(int attackPower) {
+        this.attackPower = attackPower;
+    }
+
+    public void makeMove(WorldMap map){
+
     }
 }

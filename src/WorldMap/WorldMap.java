@@ -5,31 +5,71 @@ import Entity.Entity;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 public class WorldMap {
-    public int length;
-    public int width;
-    public Map<Coordinate, Entity> mapWorld;
+    private int length;
+    private int width;
+    private Map<Coordinate, Entity> entityMap;
 
     public WorldMap(int lengthX, int widthY) {
         length = lengthX;
         width = widthY;
-        mapWorld = new HashMap<>();
-    }
-    public void setEntity(Entity entity, Coordinate coordinate){
-        entity.coordinate = coordinate;
-        mapWorld.put(coordinate,entity);
+        entityMap = new HashMap<>();
     }
 
-//    public void setupDefaultEntity(int x, int y){
-//        Random random = new Random();
-//        Coordinate coordinate;
-//        do{
-//            x = random.nextInt();
-//            y = random.nextInt();
-//            coordinate = new Coordinate(x,y);
-//        }while
-//    }
 
+    public int getLength() {
+        return length;
+    }
 
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setEntity(Entity entity, Coordinate coordinate) {
+        entityMap.put(coordinate, entity);
+    }
+
+    public void removeEntity(Coordinate coordinate) {
+        entityMap.remove(coordinate);
+    }
+
+    public Entity getEntity(Coordinate coordinate) {
+        return entityMap.get(coordinate);
+    }
+
+    public boolean isCoordinateExist(Coordinate coordinate) {
+        return entityMap.containsKey(coordinate);
+    }
+
+    public void setupEntity(Entity entity) {
+        Random random = new Random();
+        Coordinate coordinate;
+        do {
+            int x = random.nextInt(length);
+            int y = random.nextInt(width);
+            coordinate = new Coordinate(x, y);
+        } while (isCoordinateExist(coordinate));
+        entityMap.put(coordinate, entity);
+    }
+
+    public Coordinate findCoordinate(Entity entity) {
+        Set<Coordinate> coordinates = entityMap.keySet();
+        for (Coordinate coordinate : coordinates) {
+            Entity currentEntity = entityMap.get(coordinate);
+            if (currentEntity != null && currentEntity.equals(entity)) {
+                return coordinate;
+            }
+        }
+        throw new NullPointerException("Ошибка... по заданным координатам нет животных");
+    }
 }
