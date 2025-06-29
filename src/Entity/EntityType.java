@@ -5,10 +5,12 @@ public enum EntityType {
     ROCK("\uD83E\uDEA8"),
     TREE("\uD83C\uDF33"),
     PREDATOR("\uD83D\uDC3A"),
-    HERBIVORE("\uD83D\uDC30");
+    HERBIVORE("\uD83D\uDC30"),
+    EMPTY("\uD83D\uDFEB");
 
     EntityType(String type) {
     }
+
 
 }
 
