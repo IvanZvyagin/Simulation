@@ -4,11 +4,12 @@ import Entity.Entity;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class WorldMap {
-    private int length;
-    private int width;
-    private Map<Coordinate, Entity> mapWorld;
+    public int length;
+    public int width;
+    public Map<Coordinate, Entity> mapWorld;
 
     public WorldMap(int lengthX, int widthY) {
         length = lengthX;
@@ -19,9 +20,16 @@ public class WorldMap {
         entity.coordinate = coordinate;
         mapWorld.put(coordinate,entity);
     }
-    public void setupDefoltEntity(){
 
-    }
+//    public void setupDefaultEntity(int x, int y){
+//        Random random = new Random();
+//        Coordinate coordinate;
+//        do{
+//            x = random.nextInt();
+//            y = random.nextInt();
+//            coordinate = new Coordinate(x,y);
+//        }while
+//    }
 
 
 }
