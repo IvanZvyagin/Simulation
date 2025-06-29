@@ -1,8 +1,10 @@
 package Creature;
 
-public class Herbivore extends Creature {
+import Entity.EntityType;
+import WorldMap.Coordinate;
 
-    public Herbivore(String sprite, int hp, int speed, int attackPower) {
-        super(sprite, hp, speed, attackPower);
+public class Herbivore extends Creature {
+    public Herbivore(EntityType type, Coordinate coordinate, int health, int speed) {
+        super(type, coordinate, health, speed);
     }
 }

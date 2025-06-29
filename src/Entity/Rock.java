@@ -1,7 +1,9 @@
 package Entity;
 
+import WorldMap.Coordinate;
+
 public class Rock extends Entity {
-    public Rock(String sprite) {
-        super(sprite);
+    public Rock(EntityType type, Coordinate coordinate) {
+        super(type, coordinate);
     }
 }

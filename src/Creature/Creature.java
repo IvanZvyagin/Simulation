@@ -1,40 +1,16 @@
 package Creature;
 
 import Entity.Entity;
+import WorldMap.Coordinate;
+import Entity.EntityType;
 
 public class Creature extends Entity {
-    private int hp;
-    private int speed;
-    private int attackPower;
+    public final int health;
+    public final int speed;
 
-    public Creature(String sprite, int hp, int speed, int attackPower) {
-        super(sprite);
-        this.hp = hp;
+    public Creature(EntityType type, Coordinate coordinate, int health, int speed) {
+        super(type, coordinate);
+        this.health = health;
         this.speed = speed;
-        this.attackPower = attackPower;
-    }
-
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public int getAttackPower() {
-        return attackPower;
-    }
-
-    public void setAttackPower(int attackPower) {
-        this.attackPower = attackPower;
     }
 }

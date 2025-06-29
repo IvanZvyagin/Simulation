@@ -1,17 +1,14 @@
 package Entity;
 
-public abstract class Entity{
-    private String sprite;
 
-    public Entity(String sprite) {
-        this.sprite = sprite;
-    }
+import WorldMap.Coordinate;
 
-    public String getSprite() {
-        return sprite;
-    }
+abstract public class Entity {
+    public final EntityType type;
+    public Coordinate coordinate;
 
-    public void setSprite(String sprite) {
-        this.sprite = sprite;
+    public Entity(EntityType type, Coordinate coordinate) {
+        this.type = type;
+        this.coordinate = coordinate;
     }
 }
