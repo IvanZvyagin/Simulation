@@ -6,7 +6,5 @@ public enum EntityType {
     TREE,
     PREDATOR,
     HERBIVORE,
-    EMPTY,
-
 }
 
