@@ -2,10 +2,7 @@ package WorldMap;
 
 import Entity.Entity;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 public class WorldMap {
     private int length;
@@ -49,6 +46,9 @@ public class WorldMap {
 
     public boolean isCoordinateExist(Coordinate coordinate) {
         return entityMap.containsKey(coordinate);
+    }
+    public Collection<Entity> getAllEntities(){
+        return Collections.unmodifiableCollection(entityMap.values());
     }
 
     public void setupEntity(Entity entity) {
