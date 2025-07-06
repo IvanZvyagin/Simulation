@@ -79,9 +79,6 @@ public class Simulation {
                 if (command == COMMAND_PAUSE || command == COMMAND_STOP) {
                     pause = false;
                     break;
-                } else if (command == COMMAND_ONETURN) {
-                    nextTurn(map);
-                    break;
                 } else {
                     System.out.println("Такой команды нет, попробуете другую?");
                 }
@@ -96,10 +93,14 @@ public class Simulation {
     private void pause() throws Exception {
         pause = true;
         System.out.println("Пауза. Нажмите [1] для продолжения, либо введите [2], чтобы совершить один ход");
-        input.nextInt();
-        pause = false;
+        int command = input.nextInt();
+        if (command == COMMAND_ONETURN) {
+            nextTurn(map);
+        } else if(command == COMMAND_PAUSE){
+            pause = false;
         }
     }
+}
 
 //    private void oneTurn() throws Exception {
 //        System.out.printf("Введите %d для одной итерации хода", COMMAND_ONETURN);
