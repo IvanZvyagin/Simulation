@@ -17,6 +17,7 @@ public class Simulation {
     private boolean pause = false;
     private List<Action> initActions = List.of(new AddAllEntities());
     private List<Action> turnActions = List.of(new MakeMoveCreature(), new AddIfEnoughEntities());
+    private Scanner input = new Scanner(System.in);
 
     public Simulation(int lengthX, int widthY) {
         this.map = new WorldMap(lengthX, widthY);
@@ -60,8 +61,6 @@ public class Simulation {
                 case (COMMAND_PAUSE):
                     pause();
                     break;
-                case (COMMAND_ONETURN):
-                    nextTurn(map);
                 case (COMMAND_STOP):
                     continueSimulatioun = false;
                     System.out.println("Симуляция остановлена");
@@ -72,7 +71,6 @@ public class Simulation {
     }
 
     private int userInput() {
-        Scanner input = new Scanner(System.in);
         int command;
         while (true) {
             try {
@@ -80,6 +78,9 @@ public class Simulation {
                 pause = true;
                 if (command == COMMAND_PAUSE || command == COMMAND_STOP) {
                     pause = false;
+                    break;
+                } else if (command == COMMAND_ONETURN) {
+                    nextTurn(map);
                     break;
                 } else {
                     System.out.println("Такой команды нет, попробуете другую?");
@@ -92,19 +93,20 @@ public class Simulation {
         return command;
     }
 
-    private void pause() {
+    private void pause() throws Exception {
         pause = true;
-        System.out.println("Пауза. Нажмите Enter для продолжения, либо напишите любую букву");
-        Scanner input = new Scanner(System.in);
-        input.nextLine();
+        System.out.println("Пауза. Нажмите [1] для продолжения, либо введите [2], чтобы совершить один ход");
+        input.nextInt();
         pause = false;
+        }
     }
 
-    private void oneTurn() throws Exception {
-        System.out.printf("Введите %d для одной итерации хода", COMMAND_ONETURN);
-        Scanner in = new Scanner(System.in);
-        in.nextInt();
-        MapRenderer.render(map);
-        turnActions.forEach(action -> action.perform(map));
-    }
-}
+//    private void oneTurn() throws Exception {
+//        System.out.printf("Введите %d для одной итерации хода", COMMAND_ONETURN);
+//        Scanner in = new Scanner(System.in);
+//        in.nextInt();
+//        nextTurn(map);
+//        moveCounter++;
+//        MapRenderer.render(map);
+//    }
+
