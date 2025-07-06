@@ -1,9 +1,9 @@
-package TurnActions;
+package InitActions;
 
 import Creature.Herbivore;
 import Entity.EntityType;
 import Entity.Grass;
-import InitActions.AddEntity;
+import TurnActions.AddEntity;
 import WorldMap.WorldMap;
 
 
@@ -17,8 +17,8 @@ public class AddIfEnoughEntities implements Action {
                 .count();
 
         if (population <= sizeMap) {
-            new AddEntity().add(map, sizeMap / 7, EntityType.GRASS)
-                    .add(map, sizeMap / 8, EntityType.HERBIVORE);
+            new AddEntity().add(map, sizeMap / 20, EntityType.GRASS)
+                    .add(map, sizeMap / 15, EntityType.HERBIVORE);
         }
     }
 }

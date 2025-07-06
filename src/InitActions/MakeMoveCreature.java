@@ -1,8 +1,7 @@
-package TurnActions;
+package InitActions;
 
 import Creature.Creature;
 import Entity.Entity;
-import Entity.EntityType;
 import WorldMap.WorldMap;
 
 import java.util.ArrayList;

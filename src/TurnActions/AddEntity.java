@@ -1,4 +1,4 @@
-package InitActions;
+package TurnActions;
 
 import Entity.EntityType;
 import WorldMap.WorldMap;
@@ -8,6 +8,7 @@ public class AddEntity {
     public synchronized AddEntity add(WorldMap map, int numberEntity, EntityType entityType) {
         EntityFabric entityFabric = new EntityFabric();
         for (int i = 0; i < numberEntity; i++) {
+            map.setupEntity(entityFabric.createEntity(entityType));
         }
         return this;
     }

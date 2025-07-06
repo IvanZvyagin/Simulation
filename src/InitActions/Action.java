@@ -1,4 +1,4 @@
-package TurnActions;
+package InitActions;
 
 import WorldMap.WorldMap;
 

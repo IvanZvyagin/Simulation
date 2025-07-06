@@ -1,4 +1,4 @@
-package InitActions;
+package TurnActions;
 
 import Creature.Herbivore;
 import Creature.Predator;
@@ -17,9 +17,9 @@ public class EntityFabric extends Entity {
             case ROCK -> new Rock();
             case TREE -> new Tree();
             //создаем хищника и травоядного с рандомными показателями(здоровье и скорость в одном диапазоне)
-            case PREDATOR -> new Predator(random.nextInt(10) + 5, random.nextInt(5) + 2,
+            case PREDATOR -> new Predator(random.nextInt(3) + 2, random.nextInt(5) + 2,
                     random.nextInt(5)+3);
-            case HERBIVORE -> new Herbivore(random.nextInt(10) + 5, random.nextInt(5)+2);
+            case HERBIVORE -> new Herbivore(random.nextInt(1) + 5, random.nextInt(5)+2);
             default -> throw new IllegalArgumentException("Переданный тип сущности не существует" + entityType);
         };
     }
